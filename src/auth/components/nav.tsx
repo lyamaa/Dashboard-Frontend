@@ -1,34 +1,86 @@
 import React from "react";
 
 const Nav = () => (
-  <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
-      Company name
-    </a>
-    <button
-      className="navbar-toggler position-absolute d-md-none collapsed"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#sidebarMenu"
-      aria-controls="sidebarMenu"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <input
-      className="form-control form-control-dark w-100"
-      type="text"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
-        <a className="nav-link" href="#">
-          Sign out
-        </a>
-      </li>
-    </ul>
+  <header className="hero">
+    <div className="hero-head">
+      <nav
+        className="navbar has-shadow"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <a className="navbar-item is--brand">
+            <img className="navbar-brand-logo" src="" alt="Welcome" />
+          </a>
+          <a href="/" className="navbar-item is-tab is-hidden-mobile is-active">
+            <span className="icon is-medium">
+              <i className="fa fa-home"></i>
+            </span>
+            Home
+          </a>
+          <a
+            className="navbar-item is-tab is-hidden-mobile"
+            href="https://github.com/mazipan/bulma-admin-dashboard-template"
+          >
+            Github
+          </a>
+          <a className="navbar-item is-tab is-hidden-mobile" href="/users">
+            Users
+          </a>
+          <a className="navbar-item is-tab is-hidden-mobile" href="#">
+            About
+          </a>
+
+          <button className="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div className="navbar-menu navbar-end" id="navMenu">
+          <a className="navbar-item nav-tag">
+            <span className="icon is-small">
+              <i className="fa fa-envelope-o animated"></i>
+            </span>
+            <span className="tag is-success counter">2</span>
+          </a>
+          <a className="navbar-item nav-tag">
+            <span className="icon is-small">
+              <i className="fa fa-bell-o animated"></i>
+            </span>
+            <span className="tag is-danger counter">6</span>
+          </a>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link" href="https://mazipan.space/">
+              <figure
+                className="image is-32x32"
+                style={{ marginRight: "0.5em" }}
+              >
+                <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32" />
+              </figure>
+              mazipan
+            </a>
+
+            <div className="navbar-dropdown is-right">
+              <a className="navbar-item">
+                <span className="icon is-small">
+                  <i className="fa fa-user-o"></i>
+                </span>
+                &nbsp; Profile
+              </a>
+              <hr className="navbar-divider" />
+              <a className="navbar-item">
+                <span className="icon is-small">
+                  <i className="fa fa-power-off"></i>
+                </span>
+                &nbsp; Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 );
 

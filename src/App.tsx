@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <div className="container-fluid">
-        <div className="row">
+      <div className="wrapper">
+    <div className="columns">
           <Menu />
 
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -23,7 +23,8 @@ function App() {
            
           </main>
         </div>
-      </div>
+     
+  </div>
     </div>
   );
 }
