@@ -1,7 +1,8 @@
 import React from "react";
+import Wrapper from "./components/wrapper"
 
 const Dashboard = () => (
-  <div>
+  <Wrapper>
     <main className="column main">
         <nav className="breadcrumb is-small" aria-label="breadcrumbs">
           <ul>
@@ -188,7 +189,7 @@ const Dashboard = () => (
         </script>
 
       </main>
-  </div>
+  </Wrapper>
 )
 
 export default Dashboard;
