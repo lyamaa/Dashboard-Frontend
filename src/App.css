@@ -7871,6 +7871,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
         transform: rotate(180deg);
         margin-right: 8px; }
 
+.aside.close {
+  left: -100%
+}
+
 .main {
   padding: 2em 1em 0 1em; }
 
@@ -7888,3 +7892,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .field-label {
   text-align: left; }
+
+  .list-bar{
+    margin-left: 0;
+}

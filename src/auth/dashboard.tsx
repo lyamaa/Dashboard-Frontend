@@ -3,7 +3,7 @@ import Wrapper from "./components/wrapper"
 
 const Dashboard = () => (
   <Wrapper>
-    <main className="column main">
+    <main className="column main ml-5">
         <nav className="breadcrumb is-small" aria-label="breadcrumbs">
           <ul>
             <li><a href="/">Home</a></li>
@@ -16,7 +16,7 @@ const Dashboard = () => (
             <div className="level-item">
               <div className="title has-text-primary">
                 <span className="icon is-small icon-title">
-                  <i className="fa fa-tachometer"></i>
+                  <i className="fas fa-tachometer-alt"></i>
                 </span>
                 <span>Dashboard</span>
               </div>
