@@ -70,7 +70,7 @@ form h2{
 }
 
 
- /* .input-div > div h5{
+ .input-div > div h5{
   position: absolute;
   left: 10px;
   top: 50%;
@@ -79,7 +79,7 @@ form h2{
   font-size: 18px;
   transition: .3s;
 
-} */
+}
 
 /* .inpute {
   position: absolute;
@@ -125,4 +125,36 @@ a {
   font-family: 'Poppins', sans-serif;
   background-size: 200%;
   transition: .5s;
+}
+
+@media screen and (max-width: 1050px){
+  .container {
+    grid-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 100px){
+  form {
+    width: 290px;
+  }
+  form h2{
+    font-size: 2.4rem;
+    margin: 8px 0;
+  }
+
+  .img img{
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .img {
+    display: none;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .login-container {
+    justify-content: center;
+  }
 }

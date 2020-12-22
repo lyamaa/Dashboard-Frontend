@@ -7,6 +7,7 @@ import Dashboard from "./auth/dashboard";
 import Users from "./auth/Users";
 import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./userAuth/Login";
+import Register from "./userAuth/register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path={"/"} exact component={Dashboard} />
         <Route path={"/users"} component={Users} />
         <Route path={"/login"} component={Login} />
+        <Route path={"/register"} component={Register} />
       </BrowserRouter>
     </div>
   );

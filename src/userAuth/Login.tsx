@@ -7,8 +7,7 @@ import Wave from "./img/wave.png";
 class Login extends Component {
   render() {
     return (
-      <div className="container">
-        <img className="wave" src={Wave} />
+      <div className="container is-mobile">
         <div className="container">
           <div className="img">
             <img src={Access} />
@@ -28,7 +27,7 @@ class Login extends Component {
                   {/* <label className="label">Username/Email</label> */}
                   <div className="control has-icons-left has-icons-right">
                     <input
-                      className="  input is-medium is-rounded"
+                      className="input is-medium is-rounded"
                       type="text"
                       placeholder="Username/Email"
                       value=""
