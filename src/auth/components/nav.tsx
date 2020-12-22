@@ -1,7 +1,28 @@
-import React from "react";
 
-const Nav = () => (
-  <header className="hero">
+import React, { Component } from 'react'
+import axios from 'axios'
+import { Redirect } from "react-router-dom";
+
+export default class nav extends Component {
+
+  state = {
+    redirect: false
+  }
+
+
+  handleClick = async () => {
+    await axios.post('logout', {})
+    this.setState({
+      redirect: true
+    })
+  }
+  render() {
+    if (this.state.redirect){
+      return <Redirect to="/login" />
+    }
+    return (
+      <div>
+        <header className="hero">
     <div className="hero-head">
       <nav
         className="navbar has-shadow"
@@ -70,7 +91,7 @@ const Nav = () => (
                 &nbsp; Profile
               </a>
               <hr className="navbar-divider" />
-              <a className="navbar-item">
+              <a className="navbar-item" onClick={this.handleClick}>
                 <span className="icon is-small">
                   <i className="fa fa-power-off"></i>
                 </span>
@@ -82,6 +103,8 @@ const Nav = () => (
       </nav>
     </div>
   </header>
-);
+      </div>
+    )
+  }
+}
 
-export default Nav;

@@ -1,9 +1,28 @@
 import React, { Component } from "react";
 import Nav from "./nav";
 import Menu from "./menu";
+import axios from 'axios'
+import { Redirect } from "react-router-dom";
 
 export default class wrapper extends Component {
+  state = {
+    redirect: false
+  }
+  componentDidMount = async() => {
+    try {
+      const response = await axios.get('user')
+
+    console.log(response)
+    } catch (error) {
+      this.setState({
+        redirect: true
+      })
+    }
+  }
   render() {
+    if(this.state.redirect){
+      return <Redirect to='/login'/>
+    }
     return (
       <>
         <Nav />

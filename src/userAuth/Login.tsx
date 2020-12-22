@@ -1,19 +1,41 @@
-import React, { Component } from "react";
+import React, { Component, SyntheticEvent } from "react";
 import "./public.css";
 import Profile from "./img/profile.svg";
 import Access from "./img/access.svg";
-import Wave from "./img/wave.png";
-
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 class Login extends Component {
+  username = ''
+  password = ''
+
+  state = {
+    redirect: false
+  }
+
+  submit = async (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    const response = await axios.post('login',{
+      username: this.username,
+      password: this.password
+    })
+    this.setState({
+      redirect: true,
+    });
+  }
   render() {
+    if(this.state.redirect){
+      return <Redirect to="/"/>
+    }
     return (
+     
       <div className="container is-mobile">
         <div className="container">
           <div className="img">
             <img src={Access} />
           </div>
           <div className="login-container">
-            <form>
+            <form onSubmit={this.submit}>
               <div className="img">
                 <figure className="image is-128x128">
                   <img className="is-rounded" src={Profile} alt="" />
@@ -30,7 +52,9 @@ class Login extends Component {
                       className="input is-medium is-rounded"
                       type="text"
                       placeholder="Username/Email"
-                      value=""
+                      
+                      required
+                      onChange={e => this.username = e.target.value}
                     />
                     <span className="icon is-small is-left">
                       <i className="fas fa-user"></i>
@@ -49,7 +73,8 @@ class Login extends Component {
                         className="  input is-medium is-rounded"
                         type="Password"
                         placeholder="Password"
-                        value=""
+                        required
+                        onChange={e => this.password = e.target.value}
                       />
                       <span className="icon is-small is-left">
                         <i className="fas fa-lock"></i>

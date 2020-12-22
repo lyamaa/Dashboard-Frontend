@@ -3,8 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import './main.scss'
 
-import Dashboard from "./auth/dashboard";
-import Users from "./auth/Users";
+import Dashboard from "./auth/dashboard/dashboard";
+import Users from "./auth/user/Users";
 import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./userAuth/Login";
 import Register from "./userAuth/register";
