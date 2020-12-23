@@ -3250,6 +3250,7 @@ button.dropdown-item {
 .menu-label {
   color: white;
   font-size: 0.75em;
+  margin-top: 20px;
   letter-spacing: 0.1em;
   text-transform: uppercase; }
   .menu-label:not(:first-child) {

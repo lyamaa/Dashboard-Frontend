@@ -8,12 +8,14 @@ import Users from "./auth/user/Users";
 import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./userAuth/Login";
 import Register from "./userAuth/register";
+import RedirectToDashboard from "./auth/RedirectToDashboard";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path={"/"} exact component={Dashboard} />
+      <Route path={"/"} exact component={RedirectToDashboard} />
+        <Route path={"/dashboard"} exact component={Dashboard} />
         <Route path={"/users"} component={Users} />
         <Route path={"/login"} component={Login} />
         <Route path={"/register"} component={Register} />

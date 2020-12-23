@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
+import {Link} from 'react-router-dom'
 
 export default class nav extends Component {
 
@@ -33,21 +34,21 @@ export default class nav extends Component {
           <a className="navbar-item is--brand">
             <img className="navbar-brand-logo" src="" alt="Welcome" />
           </a>
-          <a href="/" className="navbar-item is-tab is-hidden-mobile is-active">
+          <Link to={"/"} className="navbar-item is-tab is-hidden-mobile is-active">
             <span className="icon is-medium">
               <i className="fa fa-home"></i>
             </span>
             Home
-          </a>
+          </Link>
           <a
             className="navbar-item is-tab is-hidden-mobile"
             href="https://github.com/mazipan/bulma-admin-dashboard-template"
           >
             Github
           </a>
-          <a className="navbar-item is-tab is-hidden-mobile" href="/users">
+          <Link to={"/users"} className="navbar-item is-tab is-hidden-mobile">
             Users
-          </a>
+          </Link>
           <a className="navbar-item is-tab is-hidden-mobile" href="#">
             About
           </a>
