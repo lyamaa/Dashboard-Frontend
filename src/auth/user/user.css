@@ -12,3 +12,13 @@
 .button {
     margin-left: 2px;
 }
+
+.pagination{
+    margin-top: 5%;
+    margin-left: 10px;
+
+}
+
+.pagination-next{
+  margin-right: auto;
+}
