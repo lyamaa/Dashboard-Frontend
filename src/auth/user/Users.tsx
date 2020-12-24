@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
+
 import { User } from "../../classes/User";
 
 export default class Users extends Component {
@@ -100,7 +101,7 @@ export default class Users extends Component {
                   <td>
                     <div className="is-grouped">
                       <div className="control">
-                        <Link to={"/users"} className="button is-small is-info" >
+                        <Link to={`/users/${user.id}/edit`} className="button is-small is-info" >
                           Edit
                         </Link>
                         <Link

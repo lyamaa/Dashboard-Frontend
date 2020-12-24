@@ -9,6 +9,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./userAuth/Login";
 import Register from "./userAuth/register";
 import RedirectToDashboard from "./auth/RedirectToDashboard";
+import UserCreate from "./auth/user/UserCreate";
+import UserEdit from "./auth/user/UserEdit";
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
       <BrowserRouter>
       <Route path={"/"} exact component={RedirectToDashboard} />
         <Route path={"/dashboard"} exact component={Dashboard} />
-        <Route path={"/users"} component={Users} />
         <Route path={"/login"} component={Login} />
         <Route path={"/register"} component={Register} />
+        <Route path={"/users"} component={Users} exact />
+        <Route path={"/users/create"} component={UserCreate} />
+        <Route path={"/users/:id/edit"} component={UserEdit} />
       </BrowserRouter>
     </div>
   );
