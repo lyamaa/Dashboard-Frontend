@@ -46,7 +46,7 @@ export default class Users extends Component {
         <div className="field is-grouped">
           <div className="control">
             <Link to={"/users/create"} className="button">
-              Anchor
+              User Create
             </Link>
           </div>
         </div>

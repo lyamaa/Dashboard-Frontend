@@ -118,7 +118,7 @@ export default class UserEdit extends Component<{ match: PropsWithRef<any> }> {
               </div>
               <div className="field is-grouped mt-2">
                 <div className="control">
-                  <button className="is-link">Submit</button>
+                  <button className="button is-info mt-2">Submit</button>
                 </div>
               </div>
             </form>

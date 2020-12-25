@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 import './main.scss'
 
@@ -11,6 +11,8 @@ import Register from "./userAuth/register";
 import RedirectToDashboard from "./auth/RedirectToDashboard";
 import UserCreate from "./auth/user/UserCreate";
 import UserEdit from "./auth/user/UserEdit";
+import Roles from "./auth/roles/Roles";
+import RoleCreate from "./auth/roles/RolesCreate";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path={"/users"} component={Users} exact />
         <Route path={"/users/create"} component={UserCreate} />
         <Route path={"/users/:id/edit"} component={UserEdit} />
+        <Route path={"/roles"} exact component={Roles} />
+        <Route path={"/roles/create"} exact component={RoleCreate} />
       </BrowserRouter>
     </div>
   );

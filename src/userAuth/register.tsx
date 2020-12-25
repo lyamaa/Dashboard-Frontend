@@ -4,7 +4,7 @@ import Profile from "./img/profile.svg";
 import Access from "./img/register.svg";
 import Wave from "./img/wave.png";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 export default class register extends Component {
   username = "";
   email = "";
@@ -49,7 +49,7 @@ export default class register extends Component {
               <h2 className="">Welcome</h2>
               <div className="input-div">
                 <div className="i"></div>
-                <div className="field">
+                <div className="field mt-0">
                   <div className="control">
                     <div className="control has-icons-left has-icons-right">
                       <input
@@ -66,7 +66,7 @@ export default class register extends Component {
                   </div>
                 </div>
                 <div className="i"></div>
-                <div className="field">
+                <div className="field mt-0">
                   <div className="control">
                     <div className="control has-icons-left has-icons-right">
                       <input
@@ -84,7 +84,7 @@ export default class register extends Component {
                 </div>
 
                 <div className="i"></div>
-                <div className="field">
+                <div className="field mt-0">
                   <div className="control">
                     <div className="control has-icons-left has-icons-right">
                       <input
@@ -101,7 +101,7 @@ export default class register extends Component {
                   </div>
                 </div>
                 <div className="i"></div>
-                <div className="field">
+                <div className="field mt-0">
                   <div className="control">
                     <div className="control has-icons-left has-icons-right">
                       <input
@@ -120,13 +120,13 @@ export default class register extends Component {
                   </div>
                 </div>
               </div>
-              <div className="field">
+              <div className="field mt-0">
                 <div className="control">
-                  <button className="button btn is-rounded is-success  ml-6">
+                  <button className="button btn is-rounded is-success">
                     Sign Up
                   </button>
                   <label className="label mt-1 ml-6">
-                    <a href="#">sign-in?</a>
+                    <Link to="/login">sign-in?</Link>
                   </label>
                 </div>
               </div>

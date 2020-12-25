@@ -4,14 +4,6 @@ input {
   background-color: #282a36;
 }
 
-.wave {
-  position: fixed;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
 .container {
   width: 100vw;
   height: 100vh;
@@ -110,12 +102,12 @@ a {
 
 .btn {
   display: block;
-  width: 300px;
+  width: 250px;
   height: 45px;
   padding: 10px;
   border-radius:  10px;
-  margin: 1rem  2;
-
+  margin: 1rem  3rem;
+  margin-left: 20%;
   font-size: 1.2rem;
   outline: none;
   border: none;
@@ -133,7 +125,7 @@ a {
   }
 }
 
-@media screen and (max-width: 100px){
+@media screen and (max-width: 1000px){
   form {
     width: 290px;
   }

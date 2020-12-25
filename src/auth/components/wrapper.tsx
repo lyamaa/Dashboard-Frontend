@@ -10,9 +10,8 @@ export default class wrapper extends Component {
   }
   componentDidMount = async() => {
     try {
-      const response = await axios.get('user')
+        await axios.get('user')
 
-    console.log(response)
     } catch (error) {
       this.setState({
         redirect: true

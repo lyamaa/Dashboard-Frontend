@@ -3,7 +3,7 @@ import "./public.css";
 import Profile from "./img/profile.svg";
 import Access from "./img/access.svg";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 class Login extends Component {
   username = ''
   password = ''
@@ -66,7 +66,7 @@ class Login extends Component {
               <div className="input-div">
                 <div className="i"></div>
                 <div>
-                  <div className="field">
+                  <div className="field mt-0">
                     {/* <label className="label">Password</label> */}
                     <div className="control has-icons-left has-icons-right">
                       <input
@@ -86,11 +86,11 @@ class Login extends Component {
               <div className="mt-0">
 
 
-                <button className="button btn is-rounded is-success  ml-6">
+                <button className="button btn is-rounded is-success">
                   Login
                 </button>
                 <label  className="label mt-1 ml-6">
-                  <a href="#">New Here?</a>
+                  <Link to="/register">New Here?</Link>
                 </label>
                 <label className="label ml-6">
                   <a href="#">Forgot Password?</a>
