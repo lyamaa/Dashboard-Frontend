@@ -2,43 +2,61 @@ import axios from "axios";
 import React, { Component, SyntheticEvent } from "react";
 import { Redirect } from "react-router-dom";
 import { Permission } from "../../classes/Permission";
+import { Role } from "../../classes/role";
 import Wrapper from "../components/wrapper";
 
-export default class RolesCreate extends Component {
+export default class RolesEdit extends Component<{ match: any }> {
   state = {
+    name: "",
+    selected: [],
     permissions: [],
     redirect: false,
   };
   selected: number[] = [];
   name = "";
+  id = 0;
 
   componentDidMount = async () => {
-    const response = await axios.get("permissions");
+    this.id = this.props.match.params.id;
+    const permissionCall = await axios.get("permissions");
 
-    console.log(response);
+    const roleCall = await axios.get(`roles/${this.id}`);
+
+    const role: Role = roleCall.data.data;
+
+    this.selected = role.permissions.map((p: Permission) => p.id);
+
+    console.log(permissionCall);
     this.setState({
-      permissions: response.data.data,
+      name: role.name,
+      selected: this.selected,
+      permissions: permissionCall.data.data,
     });
-    
   };
 
   check = (id: number) => {
-    if (this.selected.filter((s) => s === id).length > 0) {
+    if (this.isChecked(id)) {
       this.selected = this.selected.filter((s) => s !== id);
       return;
     }
     this.selected.push(id);
   };
 
+
+  isChecked = (id: number) => {
+    return  this.state.selected.filter((s) => s === id).length > 0
+  };
+
+
   submit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    await axios.post("roles", {
+    await axios.put( `roles/${this.id}`, {
       name: this.name,
       permissions: this.selected,
     });
     this.setState({
-        redirect: true,
-      });
+      redirect: true,
+    });
   };
   render() {
     if (this.state.redirect) {
@@ -56,6 +74,7 @@ export default class RolesCreate extends Component {
                   className="input"
                   type="text"
                   name="name"
+                  defaultValue={(this.name = this.state.name)}
                   onChange={(e) => (this.name = e.target.value)}
                 />
               </div>
@@ -67,6 +86,7 @@ export default class RolesCreate extends Component {
                       <input
                         type="checkbox"
                         value={p.id}
+                        defaultChecked={this.isChecked(p.id)}
                         onChange={(e) => this.check(p.id)}
                       />{" "}
                       {p.name} &nbsp;
@@ -76,7 +96,7 @@ export default class RolesCreate extends Component {
               </div>
 
               <div className="control mt-3">
-                <button className="button is-link">Submit</button>
+                <button className="button is-link">Update</button>
               </div>
             </div>
           </form>
