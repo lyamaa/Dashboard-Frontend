@@ -4,7 +4,7 @@ import Wrapper from "../components/wrapper";
 import axios from "axios";
 import { Product } from "../../classes/product";
 import "./product.css";
-import Paginator from "../components/paginator"
+import Paginator from "../components/paginator";
 import Delete from "../components/Delete";
 
 export default class products extends Component {
@@ -23,19 +23,19 @@ export default class products extends Component {
       products: response.data.data,
     });
 
-    this.last_page = response.data.data.last_page
+    this.last_page = response.data.data.last_page;
   };
 
   handleDelete = async (id: number) => {
     this.setState({
-        product: this.state.products.filter((p: Product) => p.id != id)
-    })
-  }
+      product: this.state.products.filter((p: Product) => p.id != id),
+    });
+  };
 
   handlePageChange = async (page: number) => {
     this.page = page;
-    await this.componentDidMount()
-  }
+    await this.componentDidMount();
+  };
 
   render() {
     return (
@@ -49,7 +49,7 @@ export default class products extends Component {
           </div>
         </div>
         {/* TABLE SECTION */}
-        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-narrow">
+        <table className="table is-striped is-narrow is-hoverable is-fullwidth is-narrow">
           <thead>
             <tr>
               <th>
@@ -104,7 +104,9 @@ export default class products extends Component {
                 <tr key={product.id}>
                   <td>{product.id}</td>
                   <td>
-                    <img src={product.image} />
+                    <figure className="image is-128x128">
+                      <img src={product.image} />
+                    </figure>
                   </td>
                   <td>{product.title}</td>
                   <td>{product.description}</td>
@@ -118,7 +120,12 @@ export default class products extends Component {
                         >
                           Edit
                         </Link>
-                        <Delete id={product.id} endpoint={'products'} handleDelete={this.handleDelete} />
+
+                        <Delete
+                          id={product.id}
+                          endpoint={"products"}
+                          handleDelete={this.handleDelete}
+                        />
                       </div>
                     </div>
                   </td>
@@ -127,7 +134,10 @@ export default class products extends Component {
             })}
           </tbody>
         </table>
-        <Paginator lastPage={this.last_page} handlePageChange={this.handlePageChange} />
+        <Paginator
+          lastPage={this.last_page}
+          handlePageChange={this.handlePageChange}
+        />
       </Wrapper>
     );
   }
