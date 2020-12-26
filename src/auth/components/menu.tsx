@@ -39,6 +39,14 @@ const Menu = () => {
               <span className="menu-text">Roles</span>
             </NavLink>
           </li>
+          <li>
+          <NavLink to={"/products"}>
+              <span className="icon is-small">
+                <i className="fas fa-users"></i>
+              </span>
+              <span className="menu-text"> Products</span>
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div id="sidebar-toggler" onClick={openHandler}>

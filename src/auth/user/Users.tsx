@@ -51,7 +51,7 @@ export default class Users extends Component {
           </div>
         </div>
         {/* TABLE SECTION */}
-        <table className="table">
+        <table className="table is-bordered is-striped is-fullwidth">
           <thead>
             <tr>
               <th>
@@ -93,7 +93,7 @@ export default class Users extends Component {
           <tbody>
             {this.state.users.map((user: User) => {
               return (
-                <tr>
+                <tr className="is-selected">
                   <td>{user.id}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>

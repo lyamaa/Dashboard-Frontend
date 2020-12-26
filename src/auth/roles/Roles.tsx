@@ -5,6 +5,7 @@ import axios from "axios";
 import { Role } from "../../classes/role";
 import { Link } from "react-router-dom";
 
+
 export default class Roles extends Component {
   state = {
     roles: [],
@@ -39,7 +40,7 @@ export default class Roles extends Component {
           </div>
         </div>
         {/* TABLE SECTION */}
-        <table className="table">
+        <table className="table is-bordered is-striped is-hoverable is-fullwidth">
           <thead>
             <tr>
               <th>
