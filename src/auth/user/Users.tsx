@@ -6,6 +6,7 @@ import "./user.css";
 
 
 import { User } from "../../classes/User";
+import Paginator from "../components/paginator";
 
 export default class Users extends Component {
   state = {
@@ -21,16 +22,13 @@ export default class Users extends Component {
     });
     this.last_page = response.data.meta.last_page
   };
-  prev = async () => {
-    if(this.page === 1) return ""
-    this.page--;
+  
+  handlePageChange = async (page: number) => {
+    this.page = page;
+
     await this.componentDidMount()
   }
-  next = async () => {
-    if(this.page === this.last_page) return ""
-    this.page++;
-    await this.componentDidMount()
-  }
+
   delete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this record?')){
         await axios.delete(`user/${id}`)
@@ -121,17 +119,7 @@ export default class Users extends Component {
         </table>
         {/* END OF TABLE SECTION */}
 
-        {/* PAGINATION SECTION */}
-          <nav
-          className="pagination is-rounded"
-          role="navigation"
-          aria-label="pagination"
-        >
-          <a className="pagination-previous" onClick={this.prev}>Previous</a>
-          <a className="pagination-next" onClick={this.next}>Next page</a>
-          
-        </nav>
-        {/* END OF PAGINATION */}
+        <Paginator lastPage={this.last_page} handlePageChange={this.handlePageChange} />
       </Wrapper>
     );
   }

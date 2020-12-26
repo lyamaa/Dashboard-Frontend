@@ -4,18 +4,25 @@ import Wrapper from "../components/wrapper";
 import axios from "axios";
 import { Product } from "../../classes/product";
 import "./product.css";
+import Paginator from "../components/paginator"
 
 export default class products extends Component {
   state = {
     products: [],
   };
+
+  page = 1;
+  last_page = 0;
+
   componentDidMount = async () => {
-    const response = await axios.get("products");
+    const response = await axios.get(`products?page=${this.page}`);
     console.log(response);
 
     this.setState({
       products: response.data.data,
     });
+
+    this.last_page = response.data.data.last_page
   };
 
   delete = async (id: number) => {
@@ -27,6 +34,11 @@ export default class products extends Component {
       });
     }
   };
+
+  handlePageChange = async (page: number) => {
+    this.page = page;
+    await this.componentDidMount()
+  }
 
   render() {
     return (
@@ -124,6 +136,7 @@ export default class products extends Component {
             })}
           </tbody>
         </table>
+        <Paginator lastPage={this.last_page} handlePageChange={this.handlePageChange} />
       </Wrapper>
     );
   }
