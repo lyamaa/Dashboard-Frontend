@@ -7,6 +7,7 @@ import "./user.css";
 
 import { User } from "../../classes/User";
 import Paginator from "../components/paginator";
+import Delete from "../components/Delete";
 
 export default class Users extends Component {
   state = {
@@ -29,13 +30,11 @@ export default class Users extends Component {
     await this.componentDidMount()
   }
 
-  delete = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this record?')){
-        await axios.delete(`user/${id}`)
+  handleDelete = async (id: number) => {
         this.setState({
           users: this.state.users.filter((u: User) => u.id !== id)
         })
-    }
+    
   }
   render() {
     return (
@@ -102,13 +101,8 @@ export default class Users extends Component {
                         <Link to={`/users/${user.id}/edit`} className="button is-small is-info" >
                           Edit
                         </Link>
-                        <Link
-                          to={"/users"}
-                          className="button is-small is-danger"
-                          onClick={() => this.delete(user.id)}
-                        >
-                          Delete
-                        </Link>
+                        
+                        <Delete id={user.id} endpoint={'user'} handleDelete={this.handleDelete} />
                       </div>
                     </div>
                   </td>

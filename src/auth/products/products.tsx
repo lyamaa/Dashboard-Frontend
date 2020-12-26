@@ -5,6 +5,7 @@ import axios from "axios";
 import { Product } from "../../classes/product";
 import "./product.css";
 import Paginator from "../components/paginator"
+import Delete from "../components/Delete";
 
 export default class products extends Component {
   state = {
@@ -25,15 +26,11 @@ export default class products extends Component {
     this.last_page = response.data.data.last_page
   };
 
-  delete = async (id: number) => {
-    if (window.confirm("Are you sure you want to delete selected product?")) {
-      await axios.delete(`products/${id}`);
-
-      this.setState({
-        product: this.state.products.filter((p: Product) => p.id != id),
-      });
-    }
-  };
+  handleDelete = async (id: number) => {
+    this.setState({
+        product: this.state.products.filter((p: Product) => p.id != id)
+    })
+  }
 
   handlePageChange = async (page: number) => {
     this.page = page;
@@ -121,13 +118,7 @@ export default class products extends Component {
                         >
                           Edit
                         </Link>
-                        <a
-                          href={"/products"}
-                          className="button is-small is-danger"
-                          onClick={() => this.delete(product.id)}
-                        >
-                          Delete
-                        </a>
+                        <Delete id={product.id} endpoint={'products'} handleDelete={this.handleDelete} />
                       </div>
                     </div>
                   </td>
