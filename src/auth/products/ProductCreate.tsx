@@ -2,6 +2,7 @@ import axios from "axios";
 import { data } from "jquery";
 import React, { Component, SyntheticEvent } from "react";
 import { Redirect } from "react-router-dom";
+import ImageUpload from "../components/ImageUpload";
 import Wrapper from "../components/wrapper";
 export default class ProductCreate extends Component {
   state = {
@@ -28,18 +29,14 @@ export default class ProductCreate extends Component {
     });
   };
 
-  upload = async (files: FileList | null) => {
-    if (files == null) return;
+  imageChanged = (image: string) => {
+      this.image = image
+      this.setState({
+        image: this.image
+      })
+  }
 
-    const data = new FormData();
-    data.append("image", files[0]);
 
-    const response = await axios.post("upload", data);
-    this.image = response.data.url;
-    this.setState({
-      image: this.image,
-    });
-  };
   render() {
     if (this.state.redirect) {
       return <Redirect to="/products" />;
@@ -68,25 +65,7 @@ export default class ProductCreate extends Component {
               ></textarea>
             </div>
 
-            <div className="file has-name is-centered is-boxed is-info mt-5">
-              <label className="file-label">
-                <input
-                  className="file-input"
-                  type="file"
-                  defaultValue={(this.image = this.state.image)}
-                  onChange={(e) => this.upload(e.target.files)}
-                />
-                <span className="file-cta">
-                  <span className="file-icon">
-                    <i className="fas fa-upload"></i>
-                  </span>
-                  <span className="file-label">Choose a file…</span>
-                </span>
-                <span className="file-name">
-                  {this.state.image}
-                </span>
-              </label>
-            </div>
+           <ImageUpload value={this.image = this.state.image} imageChanged={this.imageChanged} />
 
             <label className="label mt-5"> Price</label>
             <div className="control">
