@@ -115,7 +115,7 @@ export default class products extends Component {
                     <div className="is-grouped">
                       <div className="control">
                         <Link
-                          to={`/products/${product.id}/edit`}
+                          to={`/product/${product.id}/edit`}
                           className="button is-small is-info"
                         >
                           Edit
