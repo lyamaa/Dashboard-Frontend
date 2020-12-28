@@ -3,11 +3,21 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import {Link} from 'react-router-dom'
+import { User } from '../../classes/User';
 
 export default class nav extends Component {
 
   state = {
+    user: new User(),
     redirect: false
+  }
+
+  componentDidMount = async() => {
+      const res = await axios.get("user")
+      console.log(res )
+      this.setState({
+        user: res.data.data
+      })
   }
 
 
@@ -81,7 +91,8 @@ export default class nav extends Component {
               >
                 <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32" />
               </figure>
-              mazipan
+             {this.state.user.username}
+             
             </a>
 
             <div className="navbar-dropdown is-right">
