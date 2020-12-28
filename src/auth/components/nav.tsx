@@ -85,12 +85,12 @@ export default class nav extends Component {
             </a>
 
             <div className="navbar-dropdown is-right">
-              <a className="navbar-item">
+              <Link to="/profile" className="navbar-item">
                 <span className="icon is-small">
                   <i className="fa fa-user-o"></i>
                 </span>
                 &nbsp; Profile
-              </a>
+              </Link>
               <hr className="navbar-divider" />
               <a className="navbar-item" onClick={this.handleClick}>
                 <span className="icon is-small">
