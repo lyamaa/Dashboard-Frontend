@@ -244,7 +244,7 @@ export default class dashboard extends Component {
             </div>
           </div>
 
-          <div className="columns is-multiline mt-5 ml-5">
+          <div className="columns is-multiline mt-5 ml-2">
             <div className="column is-6">
               <article className="message is-dark">
                 <div className="message-header">
