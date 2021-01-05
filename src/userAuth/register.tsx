@@ -1,8 +1,7 @@
 import React, { Component, SyntheticEvent } from "react";
-import "./public.css";
+
 import Profile from "./img/profile.svg";
 import Access from "./img/register.svg";
-import Wave from "./img/wave.png";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 export default class register extends Component {
@@ -37,7 +36,7 @@ export default class register extends Component {
       <div className="container">
         <div className="container">
           <div className="img">
-            <img src={Access} />
+            <img src={Access}  alt="signup user"/>
           </div>
           <div className="login-container">
             <form onSubmit={this.submit}>
@@ -122,7 +121,7 @@ export default class register extends Component {
               </div>
               <div className="field mt-0">
                 <div className="control">
-                  <button className="button btn is-rounded is-success">
+                  <button type="submit" className="button btn is-rounded is-success">
                     Sign Up
                   </button>
                   <label className="label mt-1 ml-6">

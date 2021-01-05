@@ -137,6 +137,10 @@ a {
   .img img{
     width: 400px;
   }
+
+  .btn {
+    margin-left: auto;
+  }
 }
 
 @media screen and (max-width: 900px){
@@ -148,5 +152,8 @@ a {
   }
   .login-container {
     justify-content: center;
+  }
+  .btn {
+    margin-left: 1.7rem;
   }
 }

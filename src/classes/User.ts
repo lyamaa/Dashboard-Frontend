@@ -15,4 +15,8 @@ export class User {
         this.role = role;
         this.permissions = permissions;
     }
+
+    get name() {
+        return this.username
+    }
 }

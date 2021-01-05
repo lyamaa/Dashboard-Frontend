@@ -4,22 +4,13 @@ import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import {Link} from 'react-router-dom'
 import { User } from '../../classes/User';
+import { connect } from 'react-redux'; 
 
-export default class nav extends Component {
+class nav extends Component<{user:User}> {
 
   state = {
-    user: new User(),
     redirect: false
   }
-
-  componentDidMount = async() => {
-      const res = await axios.get("user")
-      console.log(res )
-      this.setState({
-        user: res.data.data
-      })
-  }
-
 
   handleClick = async () => {
     await axios.post('logout', {})
@@ -91,7 +82,7 @@ export default class nav extends Component {
               >
                 <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32" />
               </figure>
-             {this.state.user.username}
+             {this.props.user.name}
              
             </a>
 
@@ -120,3 +111,5 @@ export default class nav extends Component {
   }
 }
 
+// @ts-ignore
+export default connect(state => ({user: state.user})) (nav)

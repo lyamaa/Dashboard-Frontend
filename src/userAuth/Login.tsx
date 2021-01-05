@@ -86,7 +86,7 @@ class Login extends Component {
               <div className="mt-0">
 
 
-                <button className="button btn is-rounded is-success">
+                <button type="submit" className="button btn is-rounded is-success">
                   Login
                 </button>
                 <label  className="label mt-1 ml-6">
