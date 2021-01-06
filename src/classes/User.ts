@@ -19,4 +19,13 @@ export class User {
     get name() {
         return this.username
     }
+
+    canView(page: string) {
+       
+        return this.permissions.some(p => p === `view_${page}`);
+    }
+
+    canEdit(page: string) {
+        return this.permissions.some(p => p === `edit_${page}`);
+    }
 }

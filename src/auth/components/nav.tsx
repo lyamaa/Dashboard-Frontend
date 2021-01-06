@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import {Link} from 'react-router-dom'
 import { User } from '../../classes/User';
 import { connect } from 'react-redux'; 
-
+import Logo from "../../assets/img/dash.png"
 class nav extends Component<{user:User}> {
 
   state = {
@@ -33,7 +33,7 @@ class nav extends Component<{user:User}> {
       >
         <div className="navbar-brand">
           <a className="navbar-item is--brand">
-            <img className="navbar-brand-logo" src="" alt="Welcome" />
+            <img className="navbar-brand-logo" src={Logo} />
           </a>
           <Link to={"/"} className="navbar-item is-tab is-hidden-mobile is-active">
             <span className="icon is-medium">
@@ -41,9 +41,9 @@ class nav extends Component<{user:User}> {
             </span>
             Home
           </Link>
-          <a
-            className="navbar-item is-tab is-hidden-mobile"
-            href="https://github.com/mazipan/bulma-admin-dashboard-template"
+          <a target="_blank"
+            className="navbar-item is-tab is-hidden-mobile" 
+            href="https://github.com/surajmt8848/Dashboard"
           >
             Github
           </a>
@@ -62,34 +62,18 @@ class nav extends Component<{user:User}> {
         </div>
 
         <div className="navbar-menu navbar-end" id="navMenu">
-          <a className="navbar-item nav-tag">
-            <span className="icon is-small">
-              <i className="fa fa-envelope-o animated"></i>
-            </span>
-            <span className="tag is-success counter">2</span>
-          </a>
-          <a className="navbar-item nav-tag">
-            <span className="icon is-small">
-              <i className="fa fa-bell-o animated"></i>
-            </span>
-            <span className="tag is-danger counter">6</span>
-          </a>
+          
           <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link" href="https://mazipan.space/">
-              <figure
-                className="image is-32x32"
-                style={{ marginRight: "0.5em" }}
-              >
-                <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32" />
-              </figure>
-             {this.props.user.name}
+            <a className="navbar-link" href="#">
+              Welcome &nbsp;
+            <strong> {this.props.user.name}</strong>
              
             </a>
 
             <div className="navbar-dropdown is-right">
               <Link to="/profile" className="navbar-item">
                 <span className="icon is-small">
-                  <i className="fa fa-user-o"></i>
+                  <i className="fas fa-user"></i>
                 </span>
                 &nbsp; Profile
               </Link>
